@@ -27,3 +27,6 @@ SET(UOSNAKE_SRC
 	src/main.cpp)
 ADD_EXECUTABLE(uosnake ${UOSNAKE_SRC})
 TARGET_LINK_LIBRARIES(uosnake core)
+
+# Tests
+ADD_EXECUTABLE(SCoordTest tests/SCoordTest.cpp)
