@@ -5,6 +5,8 @@ bin
 lib
 .cproject
 .project
+.idea
+*~
 
 # Compiled Object files
 *.slo
