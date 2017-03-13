@@ -6,6 +6,7 @@ lib
 .cproject
 .project
 .idea
+cmake-build-debug
 *~
 
 # Compiled Object files
