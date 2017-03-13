@@ -15,8 +15,7 @@ private:
 
 public:
     SCoord(int x, int y);
-
-    ~SCoord();
+    virtual ~SCoord();
 
     int getX() const;
     int getY() const;
@@ -26,7 +25,6 @@ public:
     friend std::ostream& operator<<(std::ostream& os, const SCoord& coord);
 
     friend bool operator==(const SCoord& lhs, const SCoord& rhs);
-
     friend bool operator!=(const SCoord& lhs, const SCoord& rhs);
 };
 

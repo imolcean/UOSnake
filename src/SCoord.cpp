@@ -4,11 +4,7 @@
 
 #include "SCoord.h"
 
-SCoord::SCoord(int x, int y)
-{
-    this->m_x = x;
-    this->m_y = y;
-}
+SCoord::SCoord(int x, int y) : m_x(x), m_y(y) {}
 
 SCoord::~SCoord() {}
 
