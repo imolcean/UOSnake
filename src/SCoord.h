@@ -18,22 +18,22 @@ public:
     SCoord(const SCoord& other);
     virtual ~SCoord();
 
-    int getX() const;
-    int getY() const;
-    void setX(int val);
-    void setY(int val);
-
     SCoord& operator=(const SCoord& rhs);
     SCoord& operator+=(const SCoord& rhs);
     SCoord& operator-=(const SCoord& rhs);
 
-    friend std::ostream& operator<<(std::ostream& os, const SCoord& coord);
+    int getX() const;
+    int getY() const;
+    void setX(int val);
+    void setY(int val);
 
     friend bool operator==(const SCoord& lhs, const SCoord& rhs);
     friend bool operator!=(const SCoord& lhs, const SCoord& rhs);
 
     friend SCoord operator+(SCoord lhs, const SCoord& rhs);
     friend SCoord operator-(SCoord lhs, const SCoord& rhs);
+
+    friend std::ostream& operator<<(std::ostream& os, const SCoord& coord);
 };
 
 
