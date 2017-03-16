@@ -22,12 +22,17 @@ public:
     virtual ~Snake();
 
     int size() const;
+
     SCoord getHead();
+
     SDirection getDirection() const;
     void setDirection(SDirection direction);
+
     bool into() const;
 
     void grow(int bits = 1);
+    int getGrowth() const;
+
     void move();
 };
 

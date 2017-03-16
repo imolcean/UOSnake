@@ -14,7 +14,7 @@ private:
     int m_y;
 
 public:
-    SCoord(int x, int y);
+    SCoord(int x = 0, int y = 0);
     SCoord(const SCoord& other);
     virtual ~SCoord();
 

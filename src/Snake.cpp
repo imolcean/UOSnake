@@ -21,6 +21,11 @@ int Snake::size() const
     return 0;
 }
 
+SCoord Snake::getHead()
+{
+    return *m_body.begin();
+}
+
 SDirection Snake::getDirection() const
 {
     return this->m_direction;
@@ -39,4 +44,25 @@ void Snake::setDirection(SDirection direction)
     {
         m_direction = direction;
     }
+}
+
+bool Snake::into() const
+{
+    // TODO
+    return false;
+}
+
+void Snake::grow(int bits)
+{
+    m_toGrow += bits;
+}
+
+int Snake::getGrowth() const
+{
+    return m_toGrow;
+}
+
+void Snake::move()
+{
+    // TODO
 }
