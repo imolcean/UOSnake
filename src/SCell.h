@@ -13,7 +13,7 @@ private:
     Item* m_item;
 
 public:
-    SCell(bool wall);
+    SCell(bool wall = false);
     ~SCell();
 
     bool isWall();

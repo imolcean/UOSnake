@@ -14,7 +14,7 @@ TEST_CASE("Snake test")
     {
         REQUIRE(snake.getHead() == start);
         REQUIRE(snake.getDirection() == SDirection::LEFT);
-        REQUIRE_FALSE(snake.into());
+        REQUIRE_FALSE(snake.valid());
         REQUIRE(snake.size() == 3);
     }
 

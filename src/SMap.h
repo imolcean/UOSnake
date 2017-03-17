@@ -12,18 +12,20 @@
 class SMap
 {
 private:
-    const int WIDTH;
-    const int HEIGHT;
-    std::vector<SCell*> m_cells;
+    int m_width;
+    int m_height;
+    SCell* m_start;
+    SCell** m_cells;
 
 public:
-    SMap(int width, int height);
+    SMap(FILE map);
     ~SMap();
 
     int getWidth() const;
     int getHeight() const;
 
     SCell* getCell(int x, int y) const;
+    SCell* getStart() const;
 };
 
 

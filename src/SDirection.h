@@ -7,6 +7,7 @@
 
 enum class SDirection
 {
+    NONE,
     UP,
     LEFT,
     RIGHT,

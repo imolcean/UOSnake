@@ -4,26 +4,25 @@
 
 #include <map>
 #include <set>
+#include <algorithm>
 #include "Snake.h"
 
-Snake::Snake(SCoord start, SDirection direction) : m_direction(direction), m_toGrow(0)
+Snake::Snake(SCell& start) : m_direction(SDirection::NONE), m_toGrow(0)
 {
-    /* TODO Создать голову на стартовой позиции,
-     * хвост и промежуточный сегмент
-     */
+    m_body.push_back(start);
 }
 
 Snake::~Snake() {}
 
 int Snake::size() const
 {
-    // TODO Возвразать размер змеи
-    return 0;
+    // Size of the snake will definitely fit valid an int
+    return (int) m_body.size();
 }
 
-SCoord Snake::getHead()
+SCell& Snake::getHead() const
 {
-    return *m_body.begin();
+    return m_body.front();
 }
 
 SDirection Snake::getDirection() const
@@ -35,9 +34,10 @@ void Snake::setDirection(SDirection direction)
 {
     std::map<SDirection, std::set<SDirection>> valid;
 
-    valid[SDirection::UP] = {SDirection::LEFT, SDirection::RIGHT};
-    valid[SDirection::DOWN] = {SDirection::LEFT, SDirection::RIGHT};
-    valid[SDirection::LEFT] = {SDirection::UP, SDirection::DOWN};
+    valid[SDirection::NONE]  = {SDirection::LEFT, SDirection::RIGHT, SDirection::UP, SDirection::DOWN};
+    valid[SDirection::UP]    = {SDirection::LEFT, SDirection::RIGHT};
+    valid[SDirection::DOWN]  = {SDirection::LEFT, SDirection::RIGHT};
+    valid[SDirection::LEFT]  = {SDirection::UP, SDirection::DOWN};
     valid[SDirection::RIGHT] = {SDirection::UP, SDirection::DOWN};
 
     if(valid[m_direction].find(direction) != valid[m_direction].end())
@@ -46,23 +46,27 @@ void Snake::setDirection(SDirection direction)
     }
 }
 
-bool Snake::into() const
+void Snake::move()
 {
     // TODO
-    return false;
+}
+
+bool Snake::valid() const
+{
+    if(getHead().isWall())
+    {
+        return false;
+    }
+
+    if(std::find(m_body.begin(), m_body.end(), getHead()) != m_body.end())
+    {
+        return false;
+    }
+
+    return true;
 }
 
 void Snake::grow(int bits)
 {
     m_toGrow += bits;
-}
-
-int Snake::getGrowth() const
-{
-    return m_toGrow;
-}
-
-void Snake::move()
-{
-    // TODO
 }

@@ -1,0 +1,29 @@
+# This is a comment
+# Leave the space blank to create an empty cell
+# Fill it with @ to place a wall
+# Write a _ to create a start point
+# Format: <width> <height> <start X> <start Y>
+# 0:0 is in the top left corner
+
+100 20 6 18
+
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+@                                                                                                  @
+@                                                                                                  @
+@                                                                                                  @
+@                                                                                                  @
+@                                                                                                  @
+@                                                                                                  @
+@                                                                                                  @
+@                                                                                                  @
+@                                                                                                  @
+@                                                                                                  @
+@                                                                                                  @
+@                                                                                                  @
+@                                                                                                  @
+@                                                                                                  @
+@                                                                                                  @
+@                                                                                                  @
+@                                                                                                  @
+@                                                                                                  @
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
