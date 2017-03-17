@@ -2,9 +2,24 @@
 // Created by imolcean on 13.03.17.
 //
 
-#include <iostream>
+void init()
+{
+    // Read map file and create the SCells
+    // Create GUI
+}
 
 int main(int argc, char** argv)
 {
-    std::cout << "Hello World!" << std::endl;
+    bool done = false;
+
+    while(!done)
+    {
+//        double start = getCurrentTime();
+//
+//        processInput();
+//        update();
+//        render();
+//
+//        sleep(start + FRAME_LENGTH - getCurrentTime());
+    }
 }

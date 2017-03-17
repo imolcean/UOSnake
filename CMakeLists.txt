@@ -20,7 +20,9 @@ SET(UOSnake_VERSION_MINOR 1)
 SET(LIBCORE_SRC
 		src/SCoord.cpp
 		src/SDirection.h
-		src/Snake.cpp)
+		src/Snake.cpp
+		src/SCell.cpp
+		src/SMap.cpp)
 ADD_LIBRARY(core STATIC ${LIBCORE_SRC})
 
 
