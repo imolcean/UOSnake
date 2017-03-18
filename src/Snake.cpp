@@ -58,7 +58,7 @@ bool Snake::valid() const
         return false;
     }
 
-    if(std::find(m_body.begin(), m_body.end(), getHead()) != m_body.end())
+    if(std::find(m_body.begin() + 1, m_body.end(), getHead()) != m_body.end())
     {
         return false;
     }

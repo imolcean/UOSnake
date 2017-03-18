@@ -17,7 +17,6 @@ private:
     std::vector<SCell&> m_body;
     int m_toGrow;
 
-    bool valid() const;
     void grow(int bits = 1);
 
 public:
@@ -32,6 +31,8 @@ public:
     void setDirection(SDirection direction);
 
     void move();
+
+    bool valid() const;
 };
 
 
