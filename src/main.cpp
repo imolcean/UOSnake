@@ -25,7 +25,7 @@ bool init(std::string mapName)
     mapFile.close();
 
     // Create a Snake
-    snake = new Snake(*map->getStart());
+    snake = new Snake(map->getStart());
 
     // TODO Create GUI
 
@@ -43,7 +43,7 @@ void processInput()
     // TODO Read the key states and change the direction of the Snake
     // like this
 
-    snake->setDirection(SDirection::NONE);
+    snake->setDirection(Snake::Direction::NONE);
 }
 
 void update()

@@ -7,7 +7,7 @@
 #include <algorithm>
 #include "Snake.h"
 
-Snake::Snake(SCell& start) : m_direction(SDirection::NONE), m_toGrow(0)
+Snake::Snake(SCell* start) : m_direction(Snake::Direction::NONE), m_toGrow(0)
 {
     m_body.push_back(start);
 }
@@ -20,25 +20,25 @@ int Snake::size() const
     return (int) m_body.size();
 }
 
-SCell& Snake::getHead() const
+SCell* Snake::getHead() const
 {
     return m_body.front();
 }
 
-SDirection Snake::getDirection() const
+Snake::Direction Snake::getDirection() const
 {
     return this->m_direction;
 }
 
-void Snake::setDirection(SDirection direction)
+void Snake::setDirection(Snake::Direction direction)
 {
-    std::map<SDirection, std::set<SDirection>> valid;
+    std::map<Direction, std::set<Direction>> valid;
 
-    valid[SDirection::NONE]  = {SDirection::LEFT, SDirection::RIGHT, SDirection::UP, SDirection::DOWN};
-    valid[SDirection::UP]    = {SDirection::LEFT, SDirection::RIGHT};
-    valid[SDirection::DOWN]  = {SDirection::LEFT, SDirection::RIGHT};
-    valid[SDirection::LEFT]  = {SDirection::UP, SDirection::DOWN};
-    valid[SDirection::RIGHT] = {SDirection::UP, SDirection::DOWN};
+    valid[Direction::NONE]  = {Direction::LEFT, Direction::RIGHT, Direction::UP, Direction::DOWN};
+    valid[Direction::UP]    = {Direction::LEFT, Direction::RIGHT};
+    valid[Direction::DOWN]  = {Direction::LEFT, Direction::RIGHT};
+    valid[Direction::LEFT]  = {Direction::UP, Direction::DOWN};
+    valid[Direction::RIGHT] = {Direction::UP, Direction::DOWN};
 
     if(valid[m_direction].find(direction) != valid[m_direction].end())
     {
@@ -53,7 +53,7 @@ void Snake::move()
 
 bool Snake::valid() const
 {
-    if(getHead().isWall())
+    if(getHead()->isWall())
     {
         return false;
     }

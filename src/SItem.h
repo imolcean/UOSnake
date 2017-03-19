@@ -8,18 +8,19 @@
 
 class SItem
 {
-private:
-    Type m_type;
-    int m_counter;
-
 public:
-    enum Type
+    enum class Type
     {
         APPLE,
         CHERRY
     };
 
-    SItem(Type type, int ttl = -1);
+private:
+    Type m_type;
+    int m_counter;
+
+public:
+    SItem(SItem::Type type, int ttl = -1);
     virtual ~SItem();
 
     SItem::Type getType();

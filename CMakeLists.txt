@@ -18,7 +18,6 @@ SET(UOSnake_VERSION_MINOR 1)
 
 # Libraries
 SET(LIBCORE_SRC
-		src/SDirection.h
 		src/Snake.cpp
 		src/SCell.cpp
 		src/SMap.cpp
