@@ -6,22 +6,29 @@
 #define UOSNAKE_SCELL_H
 
 
+#include "SItem.h"
+
 class SCell
 {
 private:
-    const bool WALL;
-    Item* m_item;
+    bool m_wall;
+    SItem* m_item;
 
 public:
     SCell(bool wall = false);
-    ~SCell();
+    SCell(const SCell& other);
+    virtual ~SCell();
 
-    bool isWall();
+    SCell& operator=(const SCell& rhs);
 
-    bool empty();
-    Item* getItem();
-    bool placeItem(Item* item);
-    bool removeItem();
+    bool isWall() const;
+
+    bool empty() const;
+    SItem* getItem() const;
+    bool placeItem(SItem::Type type);
+    void removeItem();
+
+    friend void swap(SCell& x, SCell& y);
 };
 
 

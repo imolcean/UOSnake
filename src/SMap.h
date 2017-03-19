@@ -7,6 +7,7 @@
 
 
 #include <vector>
+#include <fstream>
 #include "SCell.h"
 
 class SMap
@@ -18,8 +19,8 @@ private:
     SCell** m_cells;
 
 public:
-    SMap(FILE map);
-    ~SMap();
+    SMap(std::ifstream mapFile);
+    virtual ~SMap();
 
     int getWidth() const;
     int getHeight() const;

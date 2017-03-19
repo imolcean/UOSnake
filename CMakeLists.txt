@@ -18,11 +18,11 @@ SET(UOSnake_VERSION_MINOR 1)
 
 # Libraries
 SET(LIBCORE_SRC
-		src/SCoord.cpp
 		src/SDirection.h
 		src/Snake.cpp
 		src/SCell.cpp
-		src/SMap.cpp)
+		src/SMap.cpp
+		src/SItem.cpp)
 ADD_LIBRARY(core STATIC ${LIBCORE_SRC})
 
 
@@ -34,7 +34,6 @@ TARGET_LINK_LIBRARIES(uosnake core)
 
 # Tests
 SET(TESTS
-		tests/SCoordTest.cpp
 		tests/SnakeTest.cpp)
 ADD_EXECUTABLE(global_test ${TESTS} tests/main.cpp)
 TARGET_LINK_LIBRARIES(global_test core)

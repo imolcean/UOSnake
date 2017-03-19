@@ -2,21 +2,45 @@
 // Created by imolcean on 13.03.17.
 //
 
+#include <fstream>
+#include <iostream>
 #include "Snake.h"
+#include "SMap.h"
 
 Snake* snake;
+SMap* map;
 
-void init()
+bool init(std::string mapName)
 {
-    // Open the map file and create a map object with it
-    // Close the map file
+    // Open the map file and create a map object with it, then close the file
+    std::ifstream mapFile("maps/" + mapName + ".smap");
+    if(!mapFile.is_open())
+    {
+        std::cerr << "Map file could not be open" << std::endl;
+        return false;
+    }
+
+    map = new SMap(mapFile);
+
+    mapFile.close();
+
     // Create a Snake
-    // Create GUI
+    snake = new Snake(*map->getStart());
+
+    // TODO Create GUI
+
+    return true;
+}
+
+void fin()
+{
+    delete snake;
+    delete map;
 }
 
 void processInput()
 {
-    // Read the key states and change the direction of the Snake
+    // TODO Read the key states and change the direction of the Snake
     // like this
 
     snake->setDirection(SDirection::NONE);
@@ -24,23 +48,31 @@ void processInput()
 
 void update()
 {
-    // Move the snake
-    // Check validity
-    // Update the items (counters, etc.)
+    // TODO Move the snake
+    // TODO Check validity
+    // TODO Update the items (counters, spawn new ones, etc.)
 }
 
 void render()
 {
-    // Render the map
-    // Render the snake
+    // TODO Render the map
+    // TODO Render the snake
 }
 
 int main(int argc, char** argv)
 {
+    // TODO Read the name of the map
+    std::string mapName;
+    if(!init(mapName))
+    {
+        return -1;
+    }
+
     bool done = false;
 
     while(!done)
     {
+        // TODO
 //        double start = getCurrentTime();
 //
 //        processInput();
@@ -49,4 +81,7 @@ int main(int argc, char** argv)
 //
 //        sleep(start + FRAME_LENGTH - getCurrentTime());
     }
+
+    fin();
+    return 0;
 }

@@ -2,24 +2,83 @@
 // Created by imolcean on 17.03.17.
 //
 
+#include <iostream>
 #include "SMap.h"
 
-SMap::SMap(FILE map)
+SMap::SMap(std::ifstream mapFile)
 {
-    // TODO Read width and height
-
-    int start_x;
-    int start_y;
-    // TODO Read the start coordinates
-
-    // Allocate memory for the array
-    m_cells = new SCell*[m_width];
-    for(int i = 0; i < m_width; i++)
+    // Skip the comments
+    std::string line;
+    while(true)
     {
-        m_cells[i] = new SCell[m_height];
+        mapFile >> line;
+        if(line[0] == '#' || line.length() == 0)
+        {
+            // Ignore the line
+            continue;
+        }
+
+        break;
     }
 
-    // TODO Read all the SCells and fill the array with them
+    // Read width and height
+    int width;
+    int height;
+
+    mapFile >> width >> height;
+
+    m_width = width - 1;
+    m_height = height - 1;
+
+    // Read the start coordinates
+    int start_x;
+    int start_y;
+
+    mapFile >> start_x >> start_y;
+
+    // Allocate memory for the array
+    m_cells = new SCell*[m_height];
+    for(int i = 0; i < m_height; i++)
+    {
+        m_cells[i] = new SCell[m_width];
+    }
+
+    // Read all the SCells and fill the array with them
+    int row = 0;
+    int col = 0;
+    char c;
+
+    while(mapFile.get(c))
+    {
+        if(col > m_width)
+        {
+            // Line is over
+            col = 0;
+            row++;
+
+            if(row > m_height)
+            {
+                // No more space in the array
+                break;
+            }
+        }
+
+        if(c == ' ')
+        {
+            m_cells[row][col] = SCell();
+        }
+        else
+        {
+            m_cells[row][col] = SCell(true);
+        }
+
+        col++;
+    }
+
+    if(!mapFile.eof())
+    {
+        std::cerr << "Error while reading map file" << std::endl;
+    }
 
     // Set the start position
     m_start = &m_cells[start_x][start_y];
