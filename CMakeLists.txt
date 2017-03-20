@@ -33,6 +33,6 @@ TARGET_LINK_LIBRARIES(uosnake core)
 
 # Tests
 SET(TESTS
-		tests/SnakeTest.cpp)
+		tests/SnakeTest.cpp tests/SCellTest.cpp)
 ADD_EXECUTABLE(global_test ${TESTS} tests/main.cpp)
 TARGET_LINK_LIBRARIES(global_test core)

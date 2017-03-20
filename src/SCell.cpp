@@ -35,7 +35,7 @@ SItem* SCell::getItem() const
 
 bool SCell::placeItem(SItem::Type type)
 {
-    if(empty())
+    if(empty() && !isWall())
     {
         m_item = new SItem(type);
         return true;
